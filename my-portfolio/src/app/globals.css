@@ -1,0 +1,80 @@
+:root {
+  /* Colors */
+  --bg-dark: #0a0e17;
+  --bg-card: #151a2d;
+  --primary: #667eea;
+  --secondary: #764ba2;
+  --accent: #f5576c;
+  --text-main: #ffffff;
+  --text-muted: #a0aaec;
+
+  /* Gradients */
+  --gradient-main: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(118, 75, 162, 0.4) 0%, transparent 70%);
+
+  /* Spacing */
+  --section-gap: 8rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-poppins), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+/* Utilities */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.gradient-text span {
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}

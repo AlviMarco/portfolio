@@ -1,0 +1,62 @@
+.contact {
+  padding: 8rem 0 4rem;
+}
+
+.contactCard {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.contactCard h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.contactText {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  background: var(--gradient-main);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.btnSecondary {
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.footer {
+  margin-top: 4rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .contactCard h2 {
+    font-size: 2rem;
+  }
+}
