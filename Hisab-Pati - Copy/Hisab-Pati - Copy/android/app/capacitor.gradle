@@ -1,0 +1,26 @@
+apply plugin: 'com.android.application'
+
+android {
+    // Web Assets Configuration
+    sourceSets {
+        main {
+            assets.srcDirs += ['../../dist']
+        }
+    }
+}
+
+afterEvaluate {
+    // Copy Capacitor web assets to APK
+    def capAssetsDir = new File('../../dist')
+    if (capAssetsDir.exists()) {
+        copy {
+            from capAssetsDir
+            into 'src/main/assets/public'
+        }
+    }
+}
+
+// Ensure clean build includes asset sync
+clean.doLast {
+    delete 'src/main/assets/public'
+}

@@ -1,0 +1,19 @@
+R_DEF: Internal format may change without notice
+local
+color accent
+color ic_launcher_background
+color ic_launcher_foreground
+color primary
+color primary_dark
+dimen activity_horizontal_margin
+dimen activity_vertical_margin
+dimen app_bar_height
+dimen fab_margin
+dimen text_margin
+string action_settings
+string app_name
+string app_version
+string company_name
+style Theme.HisabPati
+style Theme.HisabPati.Splash
+xml file_paths

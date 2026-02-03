@@ -1,0 +1,84 @@
+plugins {
+    id "com.android.application"
+}
+
+android {
+    namespace "com.hisabpati.app"
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.hisabpati.app"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaSourceCompatibility
+        targetCompatibility rootProject.ext.javaTargetCompatibility
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-*.pro'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+    buildFeatures {
+        viewBinding false
+    }
+}
+
+dependencies {
+    // Capacitor Dependencies (Core)
+    implementation "io.ionic:capacitor-android:4.8.0"
+    implementation "io.ionic:capacitor-core:4.8.0"
+
+    // Capacitor Plugins
+    implementation "io.ionic:capacitor-app:4.8.0"
+    implementation "io.ionic:capacitor-filesystem:4.8.0"
+    implementation "io.ionic:capacitor-share:4.8.0"
+
+    // AndroidX
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+
+    // Material
+    implementation "com.google.android.material:material:1.11.0"
+
+    // WebView
+    implementation "androidx.webkit:webkit:1.8.0"
+
+    // Test Dependencies
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+}
+
+apply from: 'capacitor.gradle'
+
+// Gradle wrapper configuration
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs.add('-Xlint:-unchecked')
+        options.compilerArgs.add('-Xlint:-deprecation')
+    }
+}
