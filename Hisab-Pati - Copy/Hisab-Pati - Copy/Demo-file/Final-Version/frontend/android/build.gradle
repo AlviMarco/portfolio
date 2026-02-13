@@ -1,0 +1,18 @@
+// Top-level build.gradle for Hisab Pati Android Project
+plugins {
+    id "com.android.application" version "8.5.0" apply false
+    id "com.android.library" version "8.5.0" apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// Define common variables for all modules
+ext {
+    compileSdkVersion = 34
+    targetSdkVersion = 34
+    minSdkVersion = 24
+    javaSourceCompatibility = JavaVersion.VERSION_17
+    javaTargetCompatibility = JavaVersion.VERSION_17
+}

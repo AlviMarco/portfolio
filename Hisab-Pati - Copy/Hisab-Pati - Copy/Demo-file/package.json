@@ -1,0 +1,17 @@
+{
+  "name": "hisab-pati-workspace",
+  "version": "1.0.0",
+  "description": "Professional Workspace for Hisab-Pati",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd Final-Version/frontend && npm run dev",
+    "dev:backend": "cd Final-Version/backend && npm run dev",
+    "install:all": "npm install && cd Final-Version/frontend && npm install && cd ../backend && npm install",
+    "build:frontend": "cd Final-Version/frontend && npm run build",
+    "test": "cd Final-Version/frontend && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

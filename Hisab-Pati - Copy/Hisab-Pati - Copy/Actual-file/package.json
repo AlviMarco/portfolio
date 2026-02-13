@@ -1,0 +1,12 @@
+{
+    "name": "hisab-pati-project",
+    "private": true,
+    "workspaces": [
+        "frontend",
+        "backend"
+    ],
+    "scripts": {
+        "dev:frontend": "npm run dev --prefix frontend",
+        "dev:backend": "npm run dev --prefix backend"
+    }
+}

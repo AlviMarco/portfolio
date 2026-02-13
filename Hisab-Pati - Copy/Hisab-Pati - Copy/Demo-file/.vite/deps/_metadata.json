@@ -1,0 +1,112 @@
+{
+  "hash": "c28fe02b",
+  "configHash": "c83e2255",
+  "lockfileHash": "2c56d4dc",
+  "browserHash": "43f16486",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "df32fe7c",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "6cf928db",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "fcee4452",
+      "needsInterop": true
+    },
+    "react/jsx-runtime": {
+      "src": "../../node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "8dd3037e",
+      "needsInterop": true
+    },
+    "@capacitor/app": {
+      "src": "../../node_modules/@capacitor/app/dist/esm/index.js",
+      "file": "@capacitor_app.js",
+      "fileHash": "da655821",
+      "needsInterop": false
+    },
+    "@capacitor/filesystem": {
+      "src": "../../node_modules/@capacitor/filesystem/dist/esm/index.js",
+      "file": "@capacitor_filesystem.js",
+      "fileHash": "5bf58217",
+      "needsInterop": false
+    },
+    "@capacitor/share": {
+      "src": "../../node_modules/@capacitor/share/dist/esm/index.js",
+      "file": "@capacitor_share.js",
+      "fileHash": "1861aff0",
+      "needsInterop": false
+    },
+    "firebase/auth": {
+      "src": "../../node_modules/firebase/auth/dist/esm/index.esm.js",
+      "file": "firebase_auth.js",
+      "fileHash": "d75c7ad8",
+      "needsInterop": false
+    },
+    "jspdf": {
+      "src": "../../node_modules/jspdf/dist/jspdf.es.min.js",
+      "file": "jspdf.js",
+      "fileHash": "385da008",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "84a0a69d",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "8fc79162",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "index.es-B5B6CC3R": {
+      "file": "index__es-B5B6CC3R.js"
+    },
+    "chunk-SITVF2AJ": {
+      "file": "chunk-SITVF2AJ.js"
+    },
+    "web-SZHDDZXZ": {
+      "file": "web-SZHDDZXZ.js"
+    },
+    "web-SBOZRW52": {
+      "file": "web-SBOZRW52.js"
+    },
+    "web-7DDVCFMP": {
+      "file": "web-7DDVCFMP.js"
+    },
+    "html2canvas.esm-BKLXZZBT": {
+      "file": "html2canvas__esm-BKLXZZBT.js"
+    },
+    "purify.es-KRPFH7Z6": {
+      "file": "purify__es-KRPFH7Z6.js"
+    },
+    "chunk-HQYTDYU2": {
+      "file": "chunk-HQYTDYU2.js"
+    },
+    "chunk-PAMVEWRW": {
+      "file": "chunk-PAMVEWRW.js"
+    },
+    "chunk-YH4DPNLU": {
+      "file": "chunk-YH4DPNLU.js"
+    },
+    "chunk-IBDE3WXB": {
+      "file": "chunk-IBDE3WXB.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}

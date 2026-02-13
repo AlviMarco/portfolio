@@ -1,0 +1,150 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AccountType {
+  ASSET
+  LIABILITY
+  EQUITY
+  INCOME
+  EXPENSE
+}
+
+enum VoucherType {
+  SALES
+  PURCHASE
+  RECEIPT
+  PAYMENT
+  JOURNAL
+}
+
+enum AccountLevel {
+  MAIN
+  GROUP
+  GL
+}
+
+enum MovementType {
+  IN
+  OUT
+}
+
+model User {
+  id        String    @id // Firebase UID
+  email     String    @unique
+  name      String?
+  companies Company[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Company {
+  id                String              @id @default(cuid())
+  userId            String
+  user              User                @relation(fields: [userId], references: [id])
+  name              String
+  address           String?
+  financialYearStart DateTime
+  financialYearEnd   DateTime
+  isActive          Boolean             @default(true)
+  accounts          Account[]
+  transactions      Transaction[]
+  inventoryItems    InventoryItem[]
+  inventoryMovements InventoryMovement[]
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+}
+
+model Account {
+  id               String      @id @default(cuid())
+  companyId        String
+  company          Company     @relation(fields: [companyId], references: [id])
+  name             String
+  type             AccountType
+  level            AccountLevel
+  code             String
+  parentAccountId  String?
+  parentAccount    Account?    @relation("AccountHierarchy", fields: [parentAccountId], references: [id])
+  subAccounts      Account[]   @relation("AccountHierarchy")
+  isSystem         Boolean     @default(false)
+  isInventoryGL    Boolean     @default(false)
+  isCOGSGL         Boolean     @default(false)
+  isLocked         Boolean     @default(false)
+  balance          Float       @default(0)
+  openingBalance   Float       @default(0)
+  journalEntries   JournalEntry[]
+  inventoryItems   InventoryItem[] // If this is an inventory GL
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+
+  @@unique([companyId, code])
+}
+
+model Transaction {
+  id          String         @id @default(cuid())
+  companyId   String
+  company     Company        @relation(fields: [companyId], references: [id])
+  voucherNo   String
+  date        DateTime
+  description String?
+  voucherType VoucherType
+  reference   String?
+  entries     JournalEntry[]
+  movements   InventoryMovement[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@unique([companyId, voucherNo])
+}
+
+model JournalEntry {
+  id            String      @id @default(cuid())
+  transactionId String
+  transaction   Transaction @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+  accountId     String
+  account       Account     @relation(fields: [accountId], references: [id])
+  debit         Float       @default(0)
+  credit        Float       @default(0)
+}
+
+model InventoryItem {
+  id                  String              @id @default(cuid())
+  companyId           String
+  company             Company             @relation(fields: [companyId], references: [id])
+  inventoryGLAccountId String
+  inventoryGLAccount   Account            @relation(fields: [inventoryGLAccountId], references: [id])
+  itemName            String
+  itemCode            String?
+  quantity            Float               @default(0)
+  rate                Float               @default(0)
+  valuationMethod     String              @default("FIFO")
+  movements           InventoryMovement[]
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+
+  @@unique([companyId, itemCode])
+}
+
+model InventoryMovement {
+  id           String       @id @default(cuid())
+  companyId    String
+  company      Company      @relation(fields: [companyId], references: [id])
+  itemId       String
+  item         InventoryItem @relation(fields: [itemId], references: [id])
+  transactionId String
+  transaction  Transaction  @relation(fields: [transactionId], references: [id])
+  movementType MovementType
+  quantity     Float
+  rate         Float
+  amount       Float
+  cosAmount    Float?       // Cost of Sales amount
+  date         DateTime
+  createdAt    DateTime     @default(now())
+}
