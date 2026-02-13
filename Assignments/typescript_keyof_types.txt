@@ -1,0 +1,17 @@
+১) keyof কীওয়ার্ডের ব্যবহার (TypeScript) keyof ব্যবহার করা হয় কোনো
+object-এর key গুলোকে একটি union type হিসেবে পাওয়ার জন্য। এটি object-এর
+property নামগুলো বের করে type হিসেবে ব্যবহার করতে দেয়।
+
+উদাহরণ: type Person = { name: string; age: number; address: string; };
+
+type PersonKeys = keyof Person; function getValue(obj: Person, key:
+PersonKeys) { return obj[key]; }
+
+২) any, unknown, এবং never এর পার্থক্য
+
+any: - যেকোনো মান রাখা যায়। - TypeScript কোনো চেক করে না।
+
+unknown: - যেকোনো মান রাখা যায় কিন্তু ব্যবহারের আগে type-check করতে হয়।
+
+never: - এমন type যা কখনোই কোনো মান return করে না। - সাধারণত error throw
+করা বা infinite loop ফাংশনে ব্যবহৃত হয়।
